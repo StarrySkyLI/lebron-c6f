@@ -1,0 +1,42 @@
+syntax = "v1"
+
+type SeckillReq {
+	User_id    int64 `json:"userId"`
+	Product_id int64 `json:"productId"`
+}
+
+type SeckillResponse{}
+
+type QuerReq {
+	User_id    int64 `json:"userId"`
+	Product_id int64 `json:"productId"`
+}
+
+type QuerResponse {
+	Message string `json:"message"`
+}
+type SeckillResultReq {
+	User_id      int64  `json:"userId"`
+	Product_id   int64  `json:"productId"`
+	SeckillToken string `json:"seckillToken"`
+}
+
+type SeckillResultResponse {
+}
+@server(
+	prefix: v1
+)
+service seckill {
+	@doc "秒杀"
+	@handler SeckillHandler
+	post /sekill (SeckillReq) returns (SeckillResponse)
+
+	@doc "秒杀结算"
+	@handler SeckillResultHandler
+	post /sekillResult (SeckillResultReq) returns (SeckillResultResponse)
+
+	@doc "查询秒杀结果"
+	@handler QuerResultHandler
+	post /querresult(QuerReq) returns (QuerResponse)
+
+}

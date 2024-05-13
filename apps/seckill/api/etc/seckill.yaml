@@ -1,0 +1,28 @@
+Name: seckill
+Host: 0.0.0.0
+Port: 8111
+
+BizRedis:
+  Host: 127.0.0.1:6379
+  Pass:
+  Type: node
+
+OrderRPC:
+  Etcd:
+    Hosts:
+      - 127.0.0.1:2379
+    Key: order.rpc
+
+ProductRPC:
+  Etcd:
+    Hosts:
+      - 127.0.0.1:2379
+    Key: product.rpc
+
+
+SeckillRPC:
+  Etcd:
+    Hosts:
+      - 127.0.0.1:2379
+    Key: seckkill.rpc
+
